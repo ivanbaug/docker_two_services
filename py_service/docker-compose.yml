@@ -1,0 +1,11 @@
+version: "3"
+services:
+  py-webs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: no
+    volumes:
+      - vol_pywebs:/var/vol_pywebs
+volumes:
+  vol_pywebs:
