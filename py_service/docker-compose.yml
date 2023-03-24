@@ -1,12 +1,17 @@
 version: "3"
 services:
   py_webs:
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
     image: py_webs
-    restart: "no"
+    command: tail -f /dev/null
     volumes:
       - vol_pywebs:/var/vol_pywebs
+    labels:
+      deck-chores.a_job.command: python3 -u main.py
+      deck-chores.a_job.interval: 90s
 volumes:
   vol_pywebs:
+# usage: https://deck-chores.readthedocs.io/en/stable/usage.html#on-a-single-host

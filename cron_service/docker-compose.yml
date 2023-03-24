@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  officer:
+    image: funkyfuture/deck-chores:1
+    restart: unless-stopped
+    environment:
+      TIMEZONE: America/Lima
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+# usage: https://deck-chores.readthedocs.io/en/stable/usage.html#on-a-single-host
