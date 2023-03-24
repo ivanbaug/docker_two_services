@@ -1,6 +1,7 @@
 version: "3"
 services:
   py_webs:
+#    restart: "no"
     restart: unless-stopped
     build:
       context: .
@@ -10,8 +11,10 @@ services:
     volumes:
       - vol_pywebs:/var/vol_pywebs
     labels:
-      deck-chores.a_job.command: python3 -u main.py
-      deck-chores.a_job.interval: 90s
+      deck-chores.qjob.command: sh -c "python3 main.py &> /proc/1/fd/1 2>&1"
+      deck-chores.qjob.interval: 10s
+    environment:
+      - PYTHONUNBUFFERED=1
 volumes:
   vol_pywebs:
 # usage: https://deck-chores.readthedocs.io/en/stable/usage.html#on-a-single-host
