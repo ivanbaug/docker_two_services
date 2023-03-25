@@ -25,3 +25,6 @@ Once verified that the log file exists
 ```
 sudo docker run --rm -i -v=vol_pywebs:/tmp/myvolume busybox cat /tmp/myvolume/app.log
 ```
+
+### Note
+requirements.txt is there just to have it on hand, it's not neccesary for this specific implementarion
