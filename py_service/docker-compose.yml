@@ -11,10 +11,10 @@ services:
     volumes:
       - vol_pywebs:/var/vol_pywebs
     labels:
-      deck-chores.qjob.command: sh -c "python3 main.py &> /proc/1/fd/1 2>&1"
+      deck-chores.qjob.command: python3 main.py
       deck-chores.qjob.interval: 10s
     environment:
       - PYTHONUNBUFFERED=1
 volumes:
   vol_pywebs:
-# usage: https://deck-chores.readthedocs.io/en/stable/usage.html#on-a-single-host
+    external: true
