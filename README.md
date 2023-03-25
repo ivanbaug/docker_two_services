@@ -13,3 +13,15 @@ https://deck-chores.readthedocs.io/en/stable/usage.html#on-a-single-host
 ```bash
 docker volume create vol_pywebs
 ```
+
+Reading data from the volume:
+
+```
+docker run --rm -i -v=vol_pywebs:/tmp/myvolume busybox find /tmp/myvolume
+```
+
+Once verified that the log file exists
+
+```
+sudo docker run --rm -i -v=vol_pywebs:/tmp/myvolume busybox cat /tmp/myvolume/app.log
+```

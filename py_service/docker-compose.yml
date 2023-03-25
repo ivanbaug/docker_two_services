@@ -11,8 +11,10 @@ services:
     volumes:
       - vol_pywebs:/var/vol_pywebs
     labels:
-      deck-chores.qjob.command: python3 main.py
-      deck-chores.qjob.interval: 10s
+      deck-chores.qjob.command: python3 main.py -t2
+      deck-chores.qjob.interval: 30s
+      deck-chores.rjob.command: python3 main.py -t1
+      deck-chores.rjob.interval: 100s
     environment:
       - PYTHONUNBUFFERED=1
 volumes:
